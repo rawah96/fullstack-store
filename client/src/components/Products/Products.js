@@ -1,9 +1,9 @@
 import React from 'react'
+import './Products.css'
 
-function Products() {
+function Products({title, image, price, description, rating}) {
     return (
-        <div>
-            PRODUCTS
+        <div className="products">
         </div>
     )
 }

@@ -11,8 +11,8 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">HOME</Route>
-          <Route path="/login"><Login /></Route>
+          <Route exact path="/"><Login /></Route>
+          {/* <Route path="/login"></Route> */}
           <Route path="/products"><Products /></Route>
           <Route path="/cart"><Cart /></Route>
         </Switch>

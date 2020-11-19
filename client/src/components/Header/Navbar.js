@@ -8,9 +8,9 @@ function Navbar() {
         <nav className="navbar">
             <ul>
                 <div><li><Link to="/">Home</Link></li></div>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
+                {/* <li><Link to="/login">Login</Link></li> */}
                 <li><Link to="/products">Products</Link></li>
+                <li><Link to="/cart">Cart</Link></li>
             </ul>
         </nav>
     )
