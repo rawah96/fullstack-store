@@ -1,9 +1,9 @@
 // dependencies
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
-require('dotenv').config();
+require("dotenv").config();
 
 // start app
 const app = express();
@@ -16,26 +16,28 @@ app.use(express.json());
 // DB
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
 });
 
 const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log('DB connection successful')
+connection.once("open", () => {
+  console.log("DB connection successful");
 });
 
-// routing 
-const usersRouter = require('./routes/users');
-app.use('/users/', usersRouter);
+// routing
+const usersRouter = require("./routes/users");
+const productRoutes = require("./routes/productRoutes");
+app.use("/users/", usersRouter);
+app.use("/products", productRoutes);
 
 // production
-if(process.env.NODE_ENV === "production") {
-    app.use(express.static('client/build'))
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
 }
 
 // run server
 app.listen(port, () => {
-    console.log(`listening on port ${port}`)
-})
+  console.log(`listening on port ${port}`);
+});
