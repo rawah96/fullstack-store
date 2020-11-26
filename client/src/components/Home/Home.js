@@ -16,7 +16,9 @@ function Home() {
                     <Products price={99.99} 
                     rating={4}
                     image={background} name="NAME OF PRODUCT"/>
-                    <Products price={99.99} image={background} name="NAME OF PRODUCT"/>
+                    <Products price={99.99} image={background} 
+                    rating={0}
+                    name="NAME OF PRODUCT"/>
                 </div>
                 <div className="home-row">
 
