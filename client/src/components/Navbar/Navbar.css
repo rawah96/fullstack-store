@@ -76,3 +76,13 @@ a {
     color: white;
     font-weight: 400;
 }
+
+.cart {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.cart-count {
+    margin: 0px 10px;
+}

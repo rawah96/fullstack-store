@@ -43,13 +43,9 @@ function Navbar() {
                         <Link to="/products"><h3>Products</h3></Link>
                     </span>
                 </div>
-                <div className="nav-option">
-                <span className="line-1">
-                        Shopping
-                    </span>
-                    <span className="line-2">
-                        <Link to="/checkout"><h3>Cart</h3></Link>
-                    </span>
+                <div className="cart">
+                    <Link to="/checkout"><ShoppingBasketIcon /></Link>
+                    <span className="line-2 cart-count">0</span>
                 </div>
             </div>
         </nav>
