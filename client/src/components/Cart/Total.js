@@ -8,8 +8,10 @@ function Total({value, items}) {
             <CurrencyFormat 
                 renderText={(value) => (
                     <>
-                    Number of Items: <strong>{items}</strong>
-                    Total: <strong>{value}</strong>
+                    Number of Items: 
+                    <strong>{items}</strong>
+                    Total: 
+                    <strong>{value}</strong>
                     </>
                 )}
 

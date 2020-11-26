@@ -6,10 +6,12 @@ import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutli
 import SearchIcon from '@material-ui/icons/Search'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 import Login from '../Login/Login'
+import { useStateValue } from '../../Context/StateProvider';
 
 function Navbar() {
     // get user from store
     const [user, setUser] = useState('')
+    const [{cart}, dispatch] = useStateValue();
     return (
         <nav className="navbar">
             <Link to="/">{/*<img 
@@ -45,7 +47,7 @@ function Navbar() {
                 </div>
                 <div className="cart">
                     <Link to="/checkout"><ShoppingBasketIcon /></Link>
-                    <span className="line-2 cart-count">0</span>
+                    <span className="line-2 cart-count">{cart.length}</span>
                 </div>
             </div>
         </nav>
