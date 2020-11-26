@@ -1,0 +1,10 @@
+.total {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* width: 200px; */
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+}
