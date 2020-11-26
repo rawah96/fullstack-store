@@ -6,7 +6,22 @@ import Products from '../Products/Products'
 function Home() {
     return (
         <div className="home">
-            HOME    
+            <div className="home-container">
+                <img 
+                    src={background}
+                    alt="background"
+                    className="home-img"
+                />
+                <div className="home-row">
+                    <Products price={19.99} image={background}/>
+                </div>
+                <div className="home-row">
+
+                </div>
+                <div className="home-row">
+
+                </div>
+            </div>
         </div>
     )
 }
