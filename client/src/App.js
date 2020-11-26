@@ -20,6 +20,9 @@ function App() {
           <Route path="/checkout">
             <Cart />
           </Route>
+          <Route path="/products">
+            <Products />
+          </Route>
           {/* <Route path="/payment">
             <Payment />
           </Route> */}
