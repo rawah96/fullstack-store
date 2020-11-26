@@ -3,6 +3,7 @@ import './Cart.css'
 import Total from './Total'
 import { useStateValue } from '../../Context/StateProvider'
 import { getCartTotal } from '../../Context/reducer';
+import Item from './Item'
 function Cart() {
     const [{cart}, dispatch] = useStateValue();
     const [total, setTotal] = useState(0);
@@ -15,15 +16,29 @@ function Cart() {
         <div className="cart">
                 <div className="cart-items">
                     <h3>Shopping Cart</h3>
+                    <div className="products">
+                    {
+                        cart.map(e => (
+                            <Item 
+                            name={e.name}
+                            image={e.image}
+                            description={e.description}
+                            rating={e.rating}
+                            price={e.price}
+                            />
+                        ))
+                    }
+                    </div>
+                    
                 </div>
                 <div className="cart-total">
                     <Total 
                         value={add}
                         items={cart.length}
                     />
-                    <button
-                className="checkout-btn"
-                >Checkout</button>
+                    <button className="checkout-btn">
+                        Checkout
+                    </button>
                 </div>
         </div>
     )

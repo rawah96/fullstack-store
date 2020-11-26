@@ -14,7 +14,6 @@ function Total({value, items}) {
                     <strong>{value}</strong>
                     </>
                 )}
-
                 decimalScale={2}
                 value={value}
                 displayType={"text"}
