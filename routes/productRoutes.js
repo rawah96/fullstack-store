@@ -35,4 +35,22 @@ router.route("/:id").delete(
   })
 );
 
+router.route("/").post(
+  asyncHandler(async (req, res) => {
+    const product = new Product({
+      name: "sample name",
+      price: 0,
+      user: req.user._id,
+      image: "/images/sample.jpg",
+      brand: "Sample brand",
+      category: "Simple Category",
+      countInStock: 0,
+      numReviews: 0,
+      description: "Sample Description",
+    });
+    const createdProduct = await product.save();
+    res.status(201).json(createdProduct);
+  })
+);
+
 module.exports = router;
