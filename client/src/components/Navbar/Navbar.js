@@ -32,15 +32,15 @@ function Navbar() {
                     <span className="line-2">
                         {user? (<h1>Sign out</h1>) : (
                         <Link to="/login">
-                        <h1>Sign in</h1></Link>)}
+                        <h3>Sign in</h3></Link>)}
                     </span>
                 </div>
                 <div className="nav-option">
                 <span className="line-1">
-                        first
+                        Browse
                     </span>
                     <span className="line-2">
-                        second
+                        <Link to="/products"><h3>Products</h3></Link>
                     </span>
                 </div>
                 <div className="nav-option">
@@ -48,7 +48,7 @@ function Navbar() {
                         Shopping
                     </span>
                     <span className="line-2">
-                        <Link to="/checkout">Cart</Link>
+                        <Link to="/checkout"><h3>Cart</h3></Link>
                     </span>
                 </div>
             </div>
