@@ -1,0 +1,5 @@
+/* adding hover style for all buttons in the app */
+button:hover {
+    transition: 1s all ease;
+    transform: scale(1.07);
+}
