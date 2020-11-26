@@ -57,33 +57,3 @@ function Navbar() {
 }
 
 export default Navbar
-
-
-//  <Link to="/"><img src="" alt="logo" /></Link>
-// <div className="nav-search">
-// <input type="text" className="navbar-input"/>
-// <SearchIcon className="navbar-search-icon"/>
-// </div>
-// <div className="nav-links">
-// <div className="nav-options">
-//         <Link to="/products">
-//             <span className="option2">Products</span>
-//         </Link>
-// </div>
-//     <Link to={!user && "/login"} className="link">
-//     <div 
-//     // onClick={login}
-//     className="nav-options">
-//         <span className="option1">Hello {user ? user.email: null}</span>
-//         <span className="option2">{user? (<h1>Sign out</h1>) : (<h1>Sign in</h1>)}</span>
-//     </div>
-// </Link>
-// <Link to="/checkout" className="link">
-//     <div className="option-basket">                        
-//         <ShoppingBasketIcon />
-//         <span className="option2 basket-counter">
-//             {/* {dataLayer? dataLayer.length : null} */}
-//         </span>
-//     </div>
-// </Link>
-// </div>
