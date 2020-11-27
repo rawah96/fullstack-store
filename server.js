@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 require("dotenv").config();
 // start app
 const app = express();
@@ -14,13 +14,15 @@ app.use(express.json());
 
 // DB
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('DATABASE CONNECTED .. !')
-});
+mongoose
+  .connect(uri, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("DATABASE CONNECTED .. !");
+  });
 
 const connection = mongoose.connection;
 connection.once("open", () => {
@@ -31,10 +33,15 @@ app.use(bodyParser());
 // routing
 const usersRouter = require("./routes/auth");
 const productRoutes = require("./routes/productRoutes");
+const uploadRoutes = require("./routes/uploadRoutes");
 app.use("/users/", usersRouter);
 app.use("/products", productRoutes);
+app.use("/api/upload", uploadRoutes);
 // const userRoutes = require('./routes/users');
 // app.use('/users', userRoutes);
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // production
 if (process.env.NODE_ENV === "production") {
