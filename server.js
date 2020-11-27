@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require("path");
 require("dotenv").config();
 // start app
 const app = express();
@@ -40,7 +41,7 @@ app.use("/api/upload", uploadRoutes);
 // const userRoutes = require('./routes/users');
 // app.use('/users', userRoutes);
 
-const __dirname = path.resolve();
+//const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // production
