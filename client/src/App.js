@@ -13,18 +13,21 @@ function App() {
     <div className="App">
       <Router>
         {/* { user ? <> */}
-      <Navbar />
+      {/* <Navbar /> */}
         <Switch>
           <Route exact path="/">
+            <Navbar />
             <Home />
           </Route>
           <Route path="/login">
             <Login />
           </Route>
           <Route path="/checkout">
+            <Navbar />
             <Cart />
           </Route>
           <Route path="/products">
+            <Navbar />
             <Products />
           </Route>
           {/* <Route path="/payment">
@@ -35,7 +38,6 @@ function App() {
         :
 
         <h1>ADMIN</h1> */}
-        }
       </Router>
     </div>
   );
