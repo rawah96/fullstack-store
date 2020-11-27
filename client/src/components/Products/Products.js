@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, fas } from '@fortawesome/free-solid-svg-icons'
 import { useStateValue } from '../../Context/StateProvider';
 
-function Products({name, image, price, description, rating}) {
+function Products({id, name, image, price, description, rating}) {
     const [{cart}, dispatch] = useStateValue();
     const addToCart = () => {
         // dispatch item into the data layer.. 
         dispatch({
             type: 'ADD_TO_CART',
             item: {
+                id:id,
                 name: name,
                 image: image,
                 price: price,

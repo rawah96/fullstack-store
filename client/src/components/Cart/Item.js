@@ -4,9 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, fas } from '@fortawesome/free-solid-svg-icons'
 import { useStateValue } from '../../Context/StateProvider'
 
-function Item({image, description, name, price, rating}) {
+function Item({id, image, description, name, price, rating}) {
+    const [{cart}, dispatch] = useStateValue();
+
+    const removeItem = () => {
+        // remove item from basket
+        dispatch({
+            type: 'REMOVE_FROM_CART',
+            id: id
+        })
+    }
+
     return (
-        // name ? <>
+        name? <>
         <div className="item">
             <img src={image} alt="product image" width="150px"/>
             <div className="item-info">
@@ -22,9 +32,10 @@ function Item({image, description, name, price, rating}) {
                         ))}
                     </span>
                 </div>
+                <button onClick={removeItem}>Remove</button>
             </div>
         </div>
-        // </>:<h2>Empty</h2>
+        </>:<h2>Empty</h2>
     )
 }
 

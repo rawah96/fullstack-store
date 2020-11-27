@@ -5,7 +5,7 @@ import { useStateValue } from '../../Context/StateProvider'
 import { getCartTotal } from '../../Context/reducer';
 import Item from './Item'
 function Cart() {
-    const [{cart}, dispatch] = useStateValue();
+    const [{cart}, ] = useStateValue();
     const [total, setTotal] = useState(0);
     let add = 0;
     cart.map(e => {
@@ -20,6 +20,7 @@ function Cart() {
                     {
                         cart.map(e => (
                             <Item 
+                            id={e.id}
                             name={e.name}
                             image={e.image}
                             description={e.description}

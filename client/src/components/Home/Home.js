@@ -13,12 +13,18 @@ function Home() {
                     className="home-img"
                 />
                 <div className="home-row">
-                    <Products price={99.99} 
+                    <Products 
+                    id={1}
+                    price={1.22}
                     rating={4}
-                    image={background} name="NAME OF PRODUCT"/>
-                    <Products price={99.99} image={background} 
+                    image={background} 
+                    name="NAME OF PRODUCT #1"/>
+                    <Products 
+                    id={2}
+                    price={99.99} 
+                    image={background} 
                     rating={0}
-                    name="NAME OF PRODUCT"/>
+                    name="NAME OF PRODUCT #2"/>
                 </div>
                 <div className="home-row">
 
