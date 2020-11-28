@@ -3,15 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { StateProvider } from './Context/StateProvider';
-import reducer, {initialState} from './Context/reducer'
+// import { StateProvider } from './Context/StateProvider';
+// import reducer, {initialState} from './Context/reducer'
+import { Provider } from "react-redux";
+import store from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <StateProvider
+    {/* <StateProvider
     initialState={initialState} reducer={reducer}>
       <App />
-    </StateProvider>
+    </StateProvider> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

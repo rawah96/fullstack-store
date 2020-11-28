@@ -5,19 +5,19 @@ import { useStateValue } from '../../Context/StateProvider'
 import { getCartTotal } from '../../Context/reducer';
 import Item from './Item'
 function Cart() {
-    const [{cart}, ] = useStateValue();
-    const [total, setTotal] = useState(0);
-    let add = 0;
-    cart.map(e => {
-        add = add + e.price
-    })
+    // const [{cart}, ] = useStateValue();
+    // const [total, setTotal] = useState(0);
+    // let add = 0;
+    // cart.map(e => {
+    //     add = add + e.price
+    // })
 
     return (
         <div className="cart">
                 <div className="cart-items">
                     <h3>Shopping Cart</h3>
                     <div className="products">
-                    {
+                    {/* {
                         cart.map(e => (
                             <Item 
                             id={e.id}
@@ -28,14 +28,13 @@ function Cart() {
                             price={e.price}
                             />
                         ))
-                    }
+                    } */}
                     </div>
                     
                 </div>
                 <div className="cart-total">
                     <Total 
-                        value={add}
-                        items={cart.length}
+
                     />
                     <button className="checkout-btn">
                         Checkout
