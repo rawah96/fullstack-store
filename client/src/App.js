@@ -5,6 +5,7 @@ import Cart from './components/Cart/Cart'
 import Products from './components/Products/Products'
 import Home from './components/Home/Home'
 import Navbar from './components/Navbar/Navbar'
+import Signup from './components/Login/Signup'
 import { useState } from 'react';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
           </Route>
           <Route path="/checkout">
             <Navbar />
