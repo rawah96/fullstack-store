@@ -8,7 +8,6 @@ function Login() {
   const signIn = (e) => {
     e.preventDefault();
     // user auth
-    dispatch(login(email, password));
   };
 
   const register = (e) => {
