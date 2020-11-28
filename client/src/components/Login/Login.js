@@ -24,13 +24,17 @@ function Login() {
                 <h1>Sign In</h1>
                 <form>
                     <label>Email</label>
-                    <input type="text" 
+                    <input
+                        placeholder="Email" 
+                        type="text" 
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                     />
 
                     <label>Password</label>
-                    <input type="password" 
+                    <input 
+                        placeholder="Password"
+                        type="password" 
                         value ={pass}
                         onChange={e => setPass(e.target.value)}    
                     />
@@ -40,8 +44,10 @@ function Login() {
                             type="submit"
                             onClick={signIn}
                         >Sign in</button>
-                        <button
-                        >Create Account</button>
+                        <Link to="/signup">
+                            <button
+                            >Create Account</button>
+                        </Link>
                     </div>
                 </form>
             </div>
