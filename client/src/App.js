@@ -1,12 +1,27 @@
-// import './App.css';
-// import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Footer from "./components/Footer";
+import ProductScreen from "./components/Products/ProductScreen";
+// import ShippingScreen from "./screens/ShippingScreen";
+import PaymentScreen from "./components/Summary/Payment";
+import PlaceOrderScreen from "./components/Summary/PlaceOrder";
+import Order from "./components/Summary/Order";
+import UserListScreen from "./screens/UserListScreen";
+import ProductListScreen from "./screens/ProductListScreen";
+import ProductEditScreen from "./screens/ProductEditScreen";
+import Home from "./components/Home/Home";
+import './App.css';
+import Navbar from './components/Navbar/Navbar'
+// import Login from './components/Login/Login'
+import LoginScreen from './screens/LoginScreen'
+import RegisterScreen from './screens/RegisterScreen'
+import Cart from "./components/Cart/Cart";
+import Shipping from './components/Shipping/Shipping'
 // import Login from './components/Login/Login';
 // import Cart from './components/Cart/Cart'
 // import Products from './components/Products/Product'
 // import Home from './components/Home/Home'
-// import Navbar from './components/Navbar/Navbar'
 // import Signup from './components/Login/Signup'
-// import { useState } from 'react';
 
 // function App() {
 //   const [user, setUser] = useState('');
@@ -39,44 +54,28 @@
 // }
 
 // export default App;
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import HomeScreen from "./screens/HomeScreen";
-import ProductScreen from "./screens/ProductScreen";
-import CartScreen from "./screens/CartScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import LoginScreen from "./screens/LoginScreen";
-import ShippingScreen from "./screens/ShippingScreen";
-import PaymentScreen from "./screens/PaymentScreen";
-import PlaceOrderScreen from "./screens/PlaceOrderScreen";
-import OrderScreen from "./screens/OrderScreen";
-import UserListScreen from "./screens/UserListScreen";
-import ProductListScreen from "./screens/ProductListScreen";
-import ProductEditScreen from "./screens/ProductEditScreen";
 
 function App() {
   return (
     <Router>
-      <Header></Header>
-      <main className="py-3">
-        <Container>
-          <Route path="/order/:id" component={OrderScreen} />
+      <Navbar />
+        <Switch>
+          <Route path="/order/:id" component={Order} />
           <Route path="/placeorder" component={PlaceOrderScreen} />
           <Route path="/payment" component={PaymentScreen} />
-          <Route path="/shipping" component={ShippingScreen} />
+          <Route path="/shipping" component={Shipping} />
+
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/product/:id" component={ProductScreen} />
-          <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/cart/:id?" component={Cart} />
           <Route path="/admin/userlist" component={UserListScreen} />
           <Route path="/admin/productlist" component={ProductListScreen} />
           <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
-          <Route path="/" component={HomeScreen} exact />
-        </Container>
-      </main>
+            {/* <ProductEditScreen />
+          </Route> */}
+          <Route exact path="/"><Home /></Route>
+        </Switch>
       <Footer></Footer>
     </Router>
   );

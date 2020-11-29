@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listUsers } from "../actions/userActions";
+import './Login.css'
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const UserListScreen = ({ history }) => {
   }, [dispatch, history]);
 
   return (
-    <>
+    <div className="">
       <h1>Users</h1>
       {loading ? (
         <Loader />
@@ -76,7 +77,7 @@ const UserListScreen = ({ history }) => {
           </tbody>
         </Table>
       )}
-    </>
+    </div>
   );
 };
 

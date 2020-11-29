@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom';
-import Products from '../Products/Product'
+// import Products from '../Products/Product'
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import SearchIcon from '@material-ui/icons/Search'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
@@ -21,7 +21,7 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-            <Link to="/">LOGO IMG</Link>        
+            {/* <Link to="/">LOGO IMG</Link>         */}
             <div className="nav-search">
                 <input 
                     className="search-input"
@@ -33,17 +33,18 @@ function Navbar() {
                 className="navigation"
             >
                 <div className="nav-option">
-                    <span className="line-1">
+                    {/* <span className="line-1">
                         Hello 
-                    </span>
+                    </span> */}
                     <span className="line-2">
                         <>
                         {userInfo ? (
                             <>
                             <span id="username">
                                 {userInfo.name}
+                                <Link to="/profile">Profile</Link>
                             </span>
-                            <button
+                            <button id="logout"
                                 onClick={logoutHandler}
                             >
                                 Logout
@@ -51,15 +52,16 @@ function Navbar() {
                             </>
                         ) : (
                             <Link to="/login">
-                                Sign in
+                                Login
                             </Link>
                         )}
                         </>
                     </span>
-                    <span>
+                    <span className="admin-menu">
                         {userInfo && userInfo.isAdmin && (
                             <>
-                            <h4 id="admin">Admin</h4>
+                            <h5 id="admin">Admin</h5>
+                            <ul>
                             <Link to="/admin/userlist">
                                 Users
                             </Link>
@@ -69,20 +71,21 @@ function Navbar() {
                             <Link to="/admin/orderlist">
                                 Orders
                             </Link>
+                            </ul>
                             </>
                         )}
                     </span>
                 </div>
                 <div className="nav-option">
-                <span className="line-1">
+                {/* <span className="line-1">
                         Browse
-                    </span>
+                    </span> */}
                     <span className="line-2">
-                        <Link to="/products"><h3>Products</h3></Link>
+                        <Link to="/"><h4>Products</h4></Link>
                     </span>
                 </div>
                 <div className="cart">
-                    <Link to="/checkout"><ShoppingBasketIcon /></Link>
+                    <Link to="/cart"><ShoppingBasketIcon /></Link>
                     <span className="line-2 cart-count"></span>
                 </div>
             </div>

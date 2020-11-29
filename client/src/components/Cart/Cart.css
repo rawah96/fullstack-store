@@ -1,6 +1,14 @@
 .cart {
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: black;
+}
+
+.items {
+    display: flex;
     flex-direction: column;
+    color: black;
 }
 /* 
 .products {

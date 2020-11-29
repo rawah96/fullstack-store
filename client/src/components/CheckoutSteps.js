@@ -1,48 +1,84 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
   return (
-    <Nav className="justify-content-center mb-4">
-      <Nav.Item>
+    <nav className="nav">
+      <div>
         {step1 ? (
-          <LinkContainer to="/login">
-            <Nav.Link>Sign In</Nav.Link>
-          </LinkContainer>
+          <Link to="/login">
+            {/* <Nav.Link>Sign In</Nav.Link> */}
+            <h5>Sign in</h5>
+          </Link>
         ) : (
-          <Nav.Link disabled> Sign In</Nav.Link>
+          // <Nav.Link disabled> Sign In</Nav.Link>
+          <h5>Sign In</h5>
         )}
-      </Nav.Item>
-      <Nav.Item>
+      </div>
+      <div>
         {step2 ? (
-          <LinkContainer to="/shipping">
-            <Nav.Link>Shipping</Nav.Link>
-          </LinkContainer>
-        ) : (
-          <Nav.Link disabled> Shipping</Nav.Link>
-        )}
-      </Nav.Item>
-      <Nav.Item>
+          <Link to="/shipping">
+            <button>Shipping</button>
+          </Link>) : null
+      }
+      </div>
+      <div>
         {step3 ? (
-          <LinkContainer to="/payment">
-            <Nav.Link>Payment</Nav.Link>
-          </LinkContainer>
-        ) : (
-          <Nav.Link disabled> Payment</Nav.Link>
-        )}
-      </Nav.Item>
-      <Nav.Item>
+          <Link to="/payment">
+            <button>Payment</button>
+            {/* <Nav.Link>Payment</Nav.Link> */}
+          </Link>) : null
+        }
+      </div>
+      <div>
         {step4 ? (
-          <LinkContainer to="/placeorder">
-            <Nav.Link>Place order</Nav.Link>
-          </LinkContainer>
-        ) : (
-          <Nav.Link disabled> Place Order</Nav.Link>
-        )}
-      </Nav.Item>
-    </Nav>
+          <Link to="/placeorder">
+            {/* <Nav.Link>Place order</Nav.Link> */}
+            <button>Place order</button>
+          </Link>) : null}
+      </div>
+    </nav>
   );
 };
 
 export default CheckoutSteps;
+
+// <Nav className="justify-content-center mb-4">
+// <Nav.Item>
+//   {step1 ? (
+//     <LinkContainer to="/login">
+//       <Nav.Link>Sign In</Nav.Link>
+//     </LinkContainer>
+//   ) : (
+//     <Nav.Link disabled> Sign In</Nav.Link>
+//   )}
+// </Nav.Item>
+// <Nav.Item>
+//   {step2 ? (
+//     <LinkContainer to="/shipping">
+//       <Nav.Link>Shipping</Nav.Link>
+//     </LinkContainer>
+//   ) : (
+//     <Nav.Link disabled> Shipping</Nav.Link>
+//   )}
+// </Nav.Item>
+// <Nav.Item>
+//   {step3 ? (
+//     <LinkContainer to="/payment">
+//       <Nav.Link>Payment</Nav.Link>
+//     </LinkContainer>
+//   ) : (
+//     <Nav.Link disabled> Payment</Nav.Link>
+//   )}
+// </Nav.Item>
+// <Nav.Item>
+//   {step4 ? (
+//     <LinkContainer to="/placeorder">
+//       <Nav.Link>Place order</Nav.Link>
+//     </LinkContainer>
+//   ) : (
+//     <Nav.Link disabled> Place Order</Nav.Link>
+//   )}
+// </Nav.Item>
+// </Nav>

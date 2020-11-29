@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react";
-import "./Login.css";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../actions/userActions";
 
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Form, Button, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import Message from "../Message";
+import Loader from "../Loader";
+import FormContainer from "../FormContainer";
+import { login } from "../../actions/userActions";
 function Login({location, history}) {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+  
     const dispatch = useDispatch();
+  
     const userLogin = useSelector((state) => state.userLogin);
     const { loading, error, userInfo } = userLogin;
-    const [redirect, setRedirect] = useState('')
   
-    // const redirect = location.search ? location.search.split("=")[1] : "/";
-
+    const redirect = location.search ? location.search.split("=")[1] : "/";
 
     useEffect(() => {
       if (userInfo) {
@@ -24,7 +27,7 @@ function Login({location, history}) {
     const submitHandler = (e) => {
       e.preventDefault();
   
-      dispatch(login(email, pass));
+      dispatch(login(email, password));
     };
 
     return (
@@ -50,13 +53,13 @@ function Login({location, history}) {
                     <input 
                         placeholder="Enter your password"
                         type="password" 
-                        value ={pass}
-                        onChange={e => setPass(e.target.value)}    
+                        value ={password}
+                        onChange={e => setPassword(e.target.value)}    
                     />
 
                     <div className="login-btns">
                         <button type="submit">Sign in</button>
-                        <Link to="/signup">
+                        <Link to="/register">
                             <button
                             >Create Account</button>
                         </Link>
@@ -66,50 +69,6 @@ function Login({location, history}) {
 
         </div>
     )
-// =======
-//   const [email, setEmail] = useState("");
-//   const [pass, setPass] = useState("");
-//   const signIn = (e) => {
-//     e.preventDefault();
-//     // user auth
-//   };
-
-//   const register = (e) => {
-//     e.preventDefault();
-//   };
-
-//   return (
-//     <div className="login">
-//       <Link to="/">
-//         <div className="login-logo">HOME</div>
-//       </Link>
-
-//       <div className="login-container">
-//         <h1>Sign In</h1>
-//         <form onSubmit={signIn}>
-//           <label>Email</label>
-//           <input
-//             type="text"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-
-//           <label>Password</label>
-//           <input
-//             type="password"
-//             value={pass}
-//             onChange={(e) => setPass(e.target.value)}
-//           />
-
-//           <div className="login-btns">
-//             <button type="submit">Sign in</button>
-//             <button>Create Account</button>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// >>>>>>> 0ef81ea2587e72afbafb88b88b71593de79ec34d
 }
 
 export default Login;

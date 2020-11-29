@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { listProductDetails } from "../actions/productActions";
+import { listProductDetails } from "../../actions/productActions";
 import {
   Row,
   Col,
@@ -11,9 +11,10 @@ import {
   Button,
   Form,
 } from "react-bootstrap";
-import Rating from "../components/Rating";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+import Rating from "../Rating";
+import Loader from "../Loader";
+import Message from "../Message";
+import "./Product.css"
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -31,7 +32,7 @@ const ProductScreen = ({ history, match }) => {
   };
 
   return (
-    <>
+    <div className="">
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>
@@ -40,52 +41,52 @@ const ProductScreen = ({ history, match }) => {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Row>
-          <Col md={6}>
-            <Image src={product.image} alt={product.name} fluid />
-          </Col>
-          <Col md={3}>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
+        <div>
+          <div>
+            <img src={product.image} alt={product.name} fluid />
+          </div>
+          <div>
+            {/* <ListGroup variant="flush"> */}
+              <div>
                 <h3>{product.name}</h3>
-              </ListGroup.Item>
-              <ListGroup.Item>
+              </div>
+              <div>
                 <Rating
                   value={product.rating}
                   text={`${product.numReviews} reviews`}
                 />
-              </ListGroup.Item>
-              <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-              <ListGroup.Item>
+              </div>
+              <div>Price: ${product.price}</div>
+              <div>
                 Description: ${product.description}
-              </ListGroup.Item>
-            </ListGroup>
-          </Col>
-          <Col md={3}>
-            <Card>
-              <ListGroup>
-                <ListGroup.Item variant="flush">
-                  <Row>
-                    <Col>Price:</Col>
-                    <Col>
+              </div>
+            {/* </ListGroup> */}
+          </div>
+          <div>
+            {/* <Card> */}
+              {/* <ListGroup> */}
+                {/* <ListGroup.Item variant="flush"> */}
+                  <div>
+                    <div>Price:</div>
+                    <div>
                       <strong>${product.price}</strong>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Status:</Col>
-                    <Col>
+                    </div>
+                  </div>
+                {/* </ListGroup.Item> */}
+                {/* <ListGroup.Item> */}
+                  <div>
+                    <div>Status:</div>
+                    <div>
                       {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
+                    </div>
+                  </div>
+                {/* </ListGroup.Item> */}
 
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
-                    <Row>
-                      <Col>Qty</Col>
-                      <Col>
+                    <div>
+                      <div>Qty</div>
+                      <div>
                         <Form.Control
                           as="select"
                           value={qty}
@@ -97,27 +98,27 @@ const ProductScreen = ({ history, match }) => {
                             </option>
                           ))}
                         </Form.Control>
-                      </Col>
-                    </Row>
+                      </div>
+                    </div>
                   </ListGroup.Item>
                 )}
 
                 <ListGroup.Item>
-                  <Button
+                  <button
                     onClick={addToCartHandler}
                     className="btn-block"
                     type="button"
                     disabled={product.countInStock === 0}
                   >
                     Add to cart
-                  </Button>
+                  </button>
                 </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          </Col>
-        </Row>
+              {/* </ListGroup> */}
+            {/* </Card> */}
+          </div>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

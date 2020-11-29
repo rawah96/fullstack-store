@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Form, Button, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import FormContainer from "../components/FormContainer";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { savePaymentMethod } from "../actions/cartActions";
+import CheckoutSteps from "../CheckoutSteps";
+import { savePaymentMethod } from "../../actions/cartActions";
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -24,30 +22,26 @@ const PaymentScreen = ({ history }) => {
   };
 
   return (
-    <FormContainer>
+    <div className="test">
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <h1>Payment Method</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group>
-          <Form.Label as="legend">Select Method</Form.Label>
-
-          <Col>
-            <Form.Check
+      <form onSubmit={submitHandler}>
+          <h1>Select Method</h1>
+          <div>
+            Paypal or Credit Card <br />
+            <input
               type="radio"
-              label="Paypal or Credit Card"
               id="Paypal"
               name="paymentMethod"
               value="Paypal"
               checked
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check>
-          </Col>
-        </Form.Group>
-        <Button type="submit" variant="primary">
+              onChange={(e) => setPaymentMethod(e.target.value)}/>
+          </div>
+        <button type="submit">
           Continue
-        </Button>
-      </Form>
-    </FormContainer>
+        </button>
+      </form>
+    </div>
   );
 };
 
