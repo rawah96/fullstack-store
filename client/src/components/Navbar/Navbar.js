@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom';
-import Products from '../Products/Products'
+import Products from '../Products/Product'
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import SearchIcon from '@material-ui/icons/Search'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'

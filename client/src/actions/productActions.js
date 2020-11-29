@@ -15,7 +15,7 @@ import {
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_REQUEST,
   PRODUCT_UPDATE_RESET,
-} from "../constants/productConstants";
+} from "../constants/ProductConstants";
 import axios from "axios";
 
 export const listProducts = () => async (dispatch) => {

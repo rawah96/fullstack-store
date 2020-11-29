@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Home.css'
 import background from './background.jpg'
-import Products from '../Products/Products'
+import Products from '../Products/Product'
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from '../../actions/productActions';
 
 function Home() {
+    const dispatch = useDispatch();
+    const productList = useSelector((state) => state.productList);
+    const { loading, error, products } = productList;
+
+    useEffect(() => {
+        dispatch(listProducts());
+    }, [dispatch]);
+
     return (
         <div className="home">
-            <div className="home-container">
-                <img 
+                {/* <img 
                     src={background}
                     alt="background"
                     className="home-img"
@@ -31,8 +40,23 @@ function Home() {
                 </div>
                 <div className="home-row">
 
-                </div>
-            </div>
+                </div> */}
+                <>
+                <h1>Latest Products</h1>
+                {loading ? (
+                    <h2>Loading...</h2>
+                ) : error ? (
+                    <h1>{error}</h1>
+                ) : (
+                    <div className="home-container">
+                    {products.map((product) => (
+                        <div className="home-row">
+                            <Products product={product} />
+                        </div>
+                    ))}
+                    </div>
+                )}
+                </>
         </div>
     )
 }

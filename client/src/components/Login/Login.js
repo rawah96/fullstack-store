@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../actions/userActions";
 
-function Login() {
+function Login({location, history}) {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const signIn = e => {
-        e.preventDefault();
-        // user auth
-    }
+    const dispatch = useDispatch();
+    const userLogin = useSelector((state) => state.userLogin);
+    const { loading, error, userInfo } = userLogin;
+    const [redirect, setRedirect] = useState('')
+  
+    // const redirect = location.search ? location.search.split("=")[1] : "/";
 
-    const register = e => {
-        e.preventDefault();
-    }
+
+    useEffect(() => {
+      if (userInfo) {
+        history.push(redirect);
+      }
+    }, [history, userInfo, redirect]);
+  
+    const submitHandler = (e) => {
+      e.preventDefault();
+  
+      dispatch(login(email, pass));
+    };
 
     return (
         <div className="login">
@@ -21,29 +34,28 @@ function Login() {
             </Link>
 
             <div className="login-container">
+                {error && <h3>There's an ERROR</h3>}
+                {loading && <h1>LOADER SPINNING</h1>}
                 <h1>Sign In</h1>
-                <form>
+                <form onSubmit={submitHandler}>
                     <label>Email</label>
                     <input
-                        placeholder="Email" 
-                        type="text" 
+                        placeholder="Enter your email" 
+                        type="email" 
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                     />
 
                     <label>Password</label>
                     <input 
-                        placeholder="Password"
+                        placeholder="Enter your password"
                         type="password" 
                         value ={pass}
                         onChange={e => setPass(e.target.value)}    
                     />
 
                     <div className="login-btns">
-                        <button
-                            type="submit"
-                            onClick={signIn}
-                        >Sign in</button>
+                        <button type="submit">Sign in</button>
                         <Link to="/signup">
                             <button
                             >Create Account</button>

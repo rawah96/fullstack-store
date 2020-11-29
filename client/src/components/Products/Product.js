@@ -1,33 +1,22 @@
 import React from 'react'
-import './Products.css'
+import './Product.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, fas } from '@fortawesome/free-solid-svg-icons'
 import { useStateValue } from '../../Context/StateProvider';
+// import Rating from "../components/Rating";
+import { Link } from 'react-router-dom'
 
-function Products({id, name, image, price, description, rating}) {
-    // const [{cart}, dispatch] = useStateValue();
-    // const addToCart = () => {
-    //     dispatch({
-    //         type: 'ADD_TO_CART',
-    //         item: {
-    //             id:id,
-    //             name: name,
-    //             image: image,
-    //             price: price,
-    //             description: description,
-    //             rating: rating
-    //         }
-    //     })
-    // }
-
+function Products({ product }) {
     return (
         <div className="product">
             <div className="product-info">
-                <p>{name}</p>
-                <img src={image} className="product-img"/>
+                <p>{product.name}</p>
+                <Link to={`/product/${product._id}`}>
+                    <img src={product.image} variant="top" />
+                </Link>
                     <p className="price">
                         <small>$</small>
-                        <strong>{price}</strong>
+                        <strong>{product.price}</strong>
                     </p>
                     <div className="rating">
                         {/* <span style={{color: "orange"}}>
