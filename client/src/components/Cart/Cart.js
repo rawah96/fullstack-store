@@ -43,25 +43,26 @@ const Cart = ({ match, location, history }) => {
     <div className="cart">
         {cartItems.length === 0 ? (
           <h1>
-            Your cart is empty <Link to="/">Go back</Link>
+            Your cart is empty {/*<Link to="/">Go back</Link>*/}
           </h1>
         ) : (
           <div>
             {cartItems.map((item) => (
               <div key={item.product} className="items">
-                <div>
-                    <h1></h1>
-                    <img src={item.image} alt={item.name} className="img"/>
+                <div id="first">
+                  <Link to={`/product/${item.product}`} id="name">{item.name}</Link>
+                  <img src={item.image} alt={item.name} className="img"/>
                 </div>
                     <div id="options">
+                      <div>
                     {/* <span id="first"> */}
-                      <Link to={`/product/${item.product}`}>{item.name}</Link>
                       <small>
                         Price: <strong>${item.price}</strong>
                       </small>
                   {/* </span> */}
                   {/* <span id="second"> */}
-                    Qty:
+                  <span id="qty">
+                    <h5>Qty:</h5>
                     <select
                       value={item.qty}
                       onChange={(e) =>
@@ -76,6 +77,8 @@ const Cart = ({ match, location, history }) => {
                         </option>
                       ))}
                     </select>
+                    </span>
+                    </div>
                     <button
                       type="button"
                       onClick={() => removeFromCartHandler(item.product)}
@@ -104,23 +107,23 @@ const Cart = ({ match, location, history }) => {
                 Proceed To Checkout
               </button>
           </div> */}
-
-
-
-
                   </div>
             ))}
           </div>
         )}
-        <div>
-              <h2>
-                Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
-                items
-              </h2>
-              $
-              {cartItems
-                .reduce((acc, item) => acc + item.qty * item.price, 0)
-                .toFixed(2)}
+        <div id="subtotal">
+          <span id="num-items">
+            Subtotal <small>({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
+            items</small> 
+          </span>
+          <span id="price">
+            Price: <small>$
+            {cartItems
+            .reduce((acc, item) => acc + item.qty * item.price, 0)
+            .toFixed(2)}
+            </small>
+          </span> 
+              
               <button
                 type="button"
                 className="btn-block"

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listUsers } from "../actions/userActions";
 import './Login.css'
+import {Link} from 'react-router-dom'
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -59,11 +59,11 @@ const UserListScreen = ({ history }) => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`/user/${user._id}/edit`}>
-                    <Button variant="light" className="btn-sm">
+                  <Link to={`/user/${user._id}/edit`}>
+                    <button variant="light" className="btn-sm">
                       <i className="fas fas-edit"></i>
-                    </Button>
-                  </LinkContainer>
+                    </button>
+                  </Link>
                   <button
                     variant="danger"
                     className="btn-sm"
