@@ -76,3 +76,32 @@ strong {
     margin: 25px;
     width: 100%;
 }
+
+.product-screen {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 90vh;
+    margin: 20px;
+}
+
+.product-screen > img {
+
+}
+
+.btn-block {
+    padding: 10px;
+}
+
+.right-side {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin: 10px;
+   height: 100%;
+}
+
+.right-side > * {
+    margin: 15px 0px;
+}

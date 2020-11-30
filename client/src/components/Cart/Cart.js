@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Form,
-  Button,
-  Card,
-} from "react-bootstrap";
+// import {
+//   Row,
+//   Col,
+//   ListGroup,
+//   Image,
+//   Form,
+//   Button,
+//   Card,
+// } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../../components/Message";
-import Loader from "../../components/Loader";
+// import Message from "../../components/Message";
+// import Loader from "../../components/Loader";
 import { addToCart, removeFromCart } from "../../actions/cartActions";
 import './Cart.css'
 
@@ -41,27 +41,28 @@ const Cart = ({ match, location, history }) => {
 
   return (
     <div className="cart">
-      <div>
-        <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
-          <Message>
+          <h1>
             Your cart is empty <Link to="/">Go back</Link>
-          </Message>
+          </h1>
         ) : (
           <div>
             {cartItems.map((item) => (
-              <div key={item.product}>
-                <div className="items">
-                  <div>
-                    <img src={item.image} alt={item.name} fluid rounded />
-                  </div>
-                  <div>
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
-                  </div>
-                  <div>${item.price}</div>
-                  <div>
+              <div key={item.product} className="items">
+                <div>
+                    <h1></h1>
+                    <img src={item.image} alt={item.name} className="img"/>
+                </div>
+                    <div id="options">
+                    {/* <span id="first"> */}
+                      <Link to={`/product/${item.product}`}>{item.name}</Link>
+                      <small>
+                        Price: <strong>${item.price}</strong>
+                      </small>
+                  {/* </span> */}
+                  {/* <span id="second"> */}
+                    Qty:
                     <select
-                    //   as="select"
                       value={item.qty}
                       onChange={(e) =>
                         dispatch(
@@ -75,24 +76,17 @@ const Cart = ({ match, location, history }) => {
                         </option>
                       ))}
                     </select>
-                  </div>
-                  <div>
                     <button
                       type="button"
-                      variant="light"
                       onClick={() => removeFromCartHandler(item.product)}
+                      id="remove"
                     >
                       remove
                     </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <div>
-            <div>
+                    {/* </span> */}
+                    </div>
+
+              <div clasName="checkout">
               <h2>
                 Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
                 items
@@ -101,8 +95,6 @@ const Cart = ({ match, location, history }) => {
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
-            </div>
-            <div>
               <button
                 type="button"
                 className="btn-block"
@@ -111,9 +103,33 @@ const Cart = ({ match, location, history }) => {
               >
                 Proceed To Checkout
               </button>
-            </div>
+          </div>
 
-              </div>
+
+
+
+                  </div>
+            ))}
+          </div>
+        )}
+        {/* <div>
+              <h2>
+                Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
+                items
+              </h2>
+              $
+              {cartItems
+                .reduce((acc, item) => acc + item.qty * item.price, 0)
+                .toFixed(2)}
+              <button
+                type="button"
+                className="btn-block"
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
+                Proceed To Checkout
+              </button>
+          </div> */}
     </div>
   );
 };

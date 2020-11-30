@@ -32,55 +32,35 @@ const ProductScreen = ({ history, match }) => {
   };
 
   return (
-    <div className="">
-      <Link className="btn btn-light my-3" to="/">
+    <>
+      {/* <Link className="btn btn-light my-3" to="/">
         Go Back
-      </Link>
+      </Link> */}
       {loading ? (
         <Loader></Loader>
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <div>
-          <div>
+        <div className="product-screen">
             <img src={product.image} alt={product.name} fluid />
-          </div>
-          <div>
-              <div>
+          <div className="right-side">
                 <h3>{product.name}</h3>
-              </div>
-              <div>
                 <Rating
                   value={product.rating}
                   text={`${product.numReviews} reviews`}
                 />
-              </div>
-              <div>Price: ${product.price}</div>
-              <div>
+
+                Price: ${product.price}
                 Description: ${product.description}
-              </div>
-          </div>
-          <div>
-                  <div>
-                    <div>Price:</div>
-                    <div>
+                      Price:
                       <strong>${product.price}</strong>
-                    </div>
-                  </div>
-                  <div>
-                    <div>Status:</div>
-                    <div>
-                      {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
-                    </div>
-                  </div>
+                      Status:
+                      {product.countInStock > 0 ? " In Stock" : " Out of Stock"}
 
                 {product.countInStock > 0 && (
-                  <ListGroup.Item>
-                    <div>
-                      <div>Qty</div>
-                      <div>
-                        <Form.Control
-                          as="select"
+                  <span>
+                    Qty
+                        <select
                           value={qty}
                           onChange={(e) => setQty(e.target.value)}
                         >
@@ -89,13 +69,10 @@ const ProductScreen = ({ history, match }) => {
                               {x + 1}
                             </option>
                           ))}
-                        </Form.Control>
-                      </div>
-                    </div>
-                  </ListGroup.Item>
+                        </select>
+                    </span>
                 )}
 
-                <ListGroup.Item>
                   <button
                     onClick={addToCartHandler}
                     className="btn-block"
@@ -104,11 +81,10 @@ const ProductScreen = ({ history, match }) => {
                   >
                     Add to cart
                   </button>
-                </ListGroup.Item>
           </div>
-        </div>
+         </div>
       )}
-    </div>
+    </>
   );
 };
 
