@@ -85,6 +85,23 @@ button > a {
     justify-content: space-between;
 }
 
-.test {
-    background-color: beige;
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+#form {
+    width: 400px;
+}
+
+#reg-btn {
+    margin: 12px 0px;
+    padding: 8px;
+}
+
+#login {
+    color: black;
 }

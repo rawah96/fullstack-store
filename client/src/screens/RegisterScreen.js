@@ -38,12 +38,12 @@ const RegisterScreen = ({ location, history }) => {
   };
 
   return (
-    <div>
+    <div className="register">
       {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader></Loader>}
       <h1>Sign Up</h1>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} id="form">
           <label>Name</label>
           <input
             type="name"
@@ -72,19 +72,17 @@ const RegisterScreen = ({ location, history }) => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)} />
           
-        <button type="submit" variant="primary">
+        <button type="submit" id="reg-btn">
           Register
         </button>
       </form>
-      <div className="py-3">
         <div>
           Have an account?{" "}
           {/* <Link to={redirect ? `login ? redirect=${redirect}` : "/login"}> */}
-          <Link to="/login">
-            Login
+          <Link to="/login" id="login">
+            <strong>Login</strong>
           </Link>
         </div>
-      </div>
     </div>
   );
 };

@@ -50,90 +50,65 @@ const PlaceOrder = ({ history }) => {
   };
 
   return (
-    <div className="">
+    <div className="place-order">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-      <div>
-        <div>
-          <div>
-            <div>
-              <h2>Shipping</h2>
-              <p>
-                <strong>Address:</strong>
-                {cart.shippingAddress.address},{cart.shippingAddress.city},
-                {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
+        <h2>Shipping</h2>
+        <span id="address">
+          <strong>Address:</strong>
+            {cart.shippingAddress.address},{cart.shippingAddress.city},
+            {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
                 ,
-              </p>
-            </div>
+        </span>
 
-            <div>
-              <h2>Payment Method</h2>
-              <strong>Method: :</strong>
-              {cart.paymentMethod}
-            </div>
+        <span id="method">
+          <h2>Payment Method: </h2>
+          {cart.paymentMethod}
+        </span>
 
-            <div>
-              <h2>Order Items</h2>
-              {cart.cartItems.length === 0 ? (
-                <Message>Your card is empty</Message>
-              ) : (
-                <div>
-                  {cart.cartItems.map((item, index) => (
-                    <div key={index}>
-                      <div>
-                        <div>
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            fluid
-                            rounded
-                          />
-                        </div>
-                        <div>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </div>
-                        <div>
+        <span id="items">
+        <h2>Order Items</h2>
+          {cart.cartItems.length === 0 ? (
+            <Message>Your card is empty</Message>
+          ) : (
+            <>
+              {cart.cartItems.map((item, index) => (
+                <div key={index} id="item-img">
+                <img
+                  src={item.image}
+                  alt={item.name}/>
+
+                <Link to={`/product/${item.product}`} id="item">
+                 {item.name}
+                </Link>
+                
+            
                           {item.price} x {item.qty} = ${item.price * item.qty}
-                        </div>
+                  
                       </div>
-                    </div>
                   ))}
-                </div>
+            </>
               )}
-            </div>
-          </div>
-        </div>
-        <div>
-          <div>
-            <div>
-              <div>
+        </span>
+             <div id="summary">
                 <h2>Order Summary</h2>
-              </div>
-              <div>
-                <div>
-                  <div>Items</div>
+                <span>
+                  Price:
                   <div>${cart.itemsPrice}</div>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <div>Shipping</div>
+                </span>
+                <span>
+                  Shipping
                   <div>${cart.shippingPrice}</div>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <div>Tax</div>
+                </span>
+                <span>
+                  Tax
                   <div>${cart.taxPrice}</div>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <div>Total</div>
+                </span>
+                <span>
+                  Total
                   <div>${cart.totalPrice}</div>
+                </span>
                 </div>
-              </div>
+      
               <div>
                 {error && <Message variant="danger">{error}</Message>}
               </div>
@@ -148,10 +123,7 @@ const PlaceOrder = ({ history }) => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   );
 };
 
