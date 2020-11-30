@@ -79,8 +79,9 @@ const RegisterScreen = ({ location, history }) => {
       <div className="py-3">
         <div>
           Have an account?{" "}
-          <Link to={redirect ? `login ? redirect=${redirect}` : "/login"}>
-            Register
+          {/* <Link to={redirect ? `login ? redirect=${redirect}` : "/login"}> */}
+          <Link to="/login">
+            Login
           </Link>
         </div>
       </div>
