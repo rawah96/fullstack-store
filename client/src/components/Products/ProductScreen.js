@@ -46,7 +46,6 @@ const ProductScreen = ({ history, match }) => {
             <img src={product.image} alt={product.name} fluid />
           </div>
           <div>
-            {/* <ListGroup variant="flush"> */}
               <div>
                 <h3>{product.name}</h3>
               </div>
@@ -60,27 +59,20 @@ const ProductScreen = ({ history, match }) => {
               <div>
                 Description: ${product.description}
               </div>
-            {/* </ListGroup> */}
           </div>
           <div>
-            {/* <Card> */}
-              {/* <ListGroup> */}
-                {/* <ListGroup.Item variant="flush"> */}
                   <div>
                     <div>Price:</div>
                     <div>
                       <strong>${product.price}</strong>
                     </div>
                   </div>
-                {/* </ListGroup.Item> */}
-                {/* <ListGroup.Item> */}
                   <div>
                     <div>Status:</div>
                     <div>
                       {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
                     </div>
                   </div>
-                {/* </ListGroup.Item> */}
 
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
@@ -113,8 +105,6 @@ const ProductScreen = ({ history, match }) => {
                     Add to cart
                   </button>
                 </ListGroup.Item>
-              {/* </ListGroup> */}
-            {/* </Card> */}
           </div>
         </div>
       )}

@@ -15,7 +15,6 @@ import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import Cart from "./components/Cart/Cart";
 import Shipping from './components/Shipping/Shipping'
-
 function App() {
   return (
     <Router>
@@ -33,8 +32,6 @@ function App() {
           <Route path="/admin/userlist" component={UserListScreen} />
           <Route path="/admin/productlist" component={ProductListScreen} />
           <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
-            {/* <ProductEditScreen />
-          </Route> */}
           <Route exact path="/"><Home /></Route>
         </Switch>
       <Footer></Footer>

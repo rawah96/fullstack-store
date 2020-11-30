@@ -1,6 +1,8 @@
 .home {
     display: flex;
     flex-direction: column;
+    /* background-image: url("background.jpg");
+    z-index: -10000; */
 }
 
 .home > h1 {
@@ -8,7 +10,6 @@
     place-items: center;
     margin-top: 20px;
 }
-
 
 .home-img {
     width: 100%;
@@ -24,10 +25,9 @@
     flex-wrap: wrap;
 }
 
-
-/* .home-row {
+ .home-row {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-} */
+} 
