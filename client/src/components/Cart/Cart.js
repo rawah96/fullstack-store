@@ -85,7 +85,7 @@ const Cart = ({ match, location, history }) => {
                     </button>
                     {/* </span> */}
                     </div>
-
+{/* 
               <div clasName="checkout">
               <h2>
                 Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
@@ -103,7 +103,7 @@ const Cart = ({ match, location, history }) => {
               >
                 Proceed To Checkout
               </button>
-          </div>
+          </div> */}
 
 
 
@@ -112,7 +112,7 @@ const Cart = ({ match, location, history }) => {
             ))}
           </div>
         )}
-        {/* <div>
+        <div>
               <h2>
                 Subtotal ({cartItems.reduce((acc, cur) => acc + cur.qty, 0)})
                 items
@@ -129,7 +129,7 @@ const Cart = ({ match, location, history }) => {
               >
                 Proceed To Checkout
               </button>
-          </div> */}
+          </div>
     </div>
   );
 };

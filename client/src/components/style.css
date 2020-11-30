@@ -1,0 +1,12 @@
+.checkout-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    top:50px;
+    right: 40px;
+}
+
+.checkout-steps > *{
+    margin: 20px;
+}

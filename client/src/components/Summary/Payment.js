@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CheckoutSteps from "../CheckoutSteps";
 import { savePaymentMethod } from "../../actions/cartActions";
+import './Payment.css'
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -22,11 +23,11 @@ const PaymentScreen = ({ history }) => {
   };
 
   return (
-    <div className="test">
+    <div className="payment">
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
-      <h1>Payment Method</h1>
+      <strong>Payment Method</strong>
       <form onSubmit={submitHandler}>
-          <h1>Select Method</h1>
+          <small>Select Method</small>
           <div>
             Paypal or Credit Card <br />
             <input
@@ -37,7 +38,7 @@ const PaymentScreen = ({ history }) => {
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}/>
           </div>
-        <button type="submit">
+        <button id="continue" type="submit">
           Continue
         </button>
       </form>

@@ -1,0 +1,25 @@
+.payment {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 100px;
+    margin: 100px;
+}
+
+strong, small {
+    display: grid;
+    place-items: center;
+}
+
+#continue {
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 2px;
+    outline: none;
+    outline-width: none;
+}
+
+#continue:hover {
+    opacity: 0.75;
+    transition: 1s all ease;
+}
