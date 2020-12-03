@@ -90,18 +90,20 @@ strong {
 }
 
 .product-screen {
-    /* display: flex;
-    align-items: center;
-    height: 90vh;
-    margin: 20px; */
-    position: relative; 
+
+    /* position: relative; 
     height: 100vh;
-    width: 100%;
+    width: 100%; */
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content:space-between;
+    padding: 0px 100px;
 }
 
+.product-screen > img{
+    border-radius: 20px;
+}
 .product-screen::after {
     content: "";
       background-image: url('background.jpg');
@@ -125,9 +127,15 @@ strong {
    align-items: center;
    justify-content: center;
    margin: 10px;
-   height: 100%;
+   background-color: white;
+   padding: 11px 60px;
+   border-radius: 20px;
 }
 
 .right-side > * {
     margin: 15px 0px;
+}
+
+#description {
+    max-width: 300px;
 }

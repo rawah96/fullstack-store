@@ -2,15 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails } from "../../actions/productActions";
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  Form,
-} from "react-bootstrap";
 import Rating from "../Rating";
 import "./Product.css"
 import background from './background.jpg'
@@ -32,25 +23,18 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      {/* <Link className="btn btn-light my-3" to="/">
-        Go Back
-      </Link> */}
       {loading ? (
         <h4>Loading...</h4>
       ) : error ? (
         <h4>{error}</h4>
       ) : (
         <div className="product-screen">
-            <img src={product.image} alt={product.name} fluid />
+            <img src={product.image} alt={product.name} />
           <div className="right-side">
                 <h3>{product.name}</h3>
-                <Rating
-                  value={product.rating}
-                  text={`${product.numReviews} reviews`}
-                />
 
-                Price: ${product.price}
-                Description: ${product.description}
+                {/* Price: ${product.price} */}
+                <span id="description">Description: ${product.description}</span>
                       Price:
                       <strong>${product.price}</strong>
                       Status:
@@ -80,6 +64,7 @@ const ProductScreen = ({ history, match }) => {
                   >
                     Add to cart
                   </button>
+
           </div>
          </div>
       )}

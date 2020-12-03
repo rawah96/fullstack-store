@@ -121,17 +121,36 @@ a {
     padding: 10px;
 }
 
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+}
 ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-ul > a {
-    padding: 4px;
+li {
+    list-style: none;
 }
 
-ul > a:hover {
+ul > li > a {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#admin {
+    margin-left: 50px;
+}
+
+#second-link {
+    margin-left: 10px;
+}
+
+ul > li > a:hover {
     transform: scale(1.1);
 }
 
@@ -146,4 +165,9 @@ ul > a:hover {
 
 #logout:hover {
     transform: scale(1.1);
+}
+
+#login {
+    color: white;
+    margin-right: 15px;
 }

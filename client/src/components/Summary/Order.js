@@ -1,17 +1,13 @@
 // order summary
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../../components/Message";
-import Loader from "../../components/Loader";
 import { getOrderDetails } from "../../actions/orderActions";
 import './Order.css'
 
 const OrderScreen = ({ match }) => {
   const dispatch = useDispatch();
   const orderId = match.params.id;
-
   const orderDetails = useSelector((state) => state.orderCreate);
 
   const { order, loading, error } = orderDetails;
@@ -33,39 +29,36 @@ const OrderScreen = ({ match }) => {
   }, [dispatch, orderId]);
 
   return loading ? (
-    <Loader></Loader>
+    <h4>Loading...</h4>
   ) : error ? (
-    <Message variant="danger">{error}</Message>
+    <h4>{error}</h4>
   ) : (
     <div className="order">
+      <h1>Thank you for your Order!</h1>
       <h1>Order {order._id}</h1>
-      <div>
+      <div className="order-summary">
         <div>
-              <h2>Shipping</h2>
-              {/* <strong>Name: </strong> */}
-              {order.user.name}
-              <p>
-                {/* <strong>Address:</strong> */}
-                {order.shippingAddress.address},{order.shippingAddress.city},
-                {order.shippingAddress.postalCode},
-                {order.shippingAddress.country},
-              </p>
+          <h2 style={{marginBottom: '10px'}}>Order Summary</h2>
+          <h2 style={{marginBottom: '10px'}}>Shipping</h2>
+            {order.user.name}
+          <small>
+            {order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.postalCode}, {order.shippingAddress.country},
+          </small>
 
-              {/* <h2>Payment Method</h2> */}
-              <p>
-                {/* <strong>Method: :</strong> */}
-                {order.paymentMethod}
-              </p>
+          <span id="payment-method">
+            <strong>Payment method:</strong>
+            <small>{order.paymentMethod}</small>
+            
+          </span>
               {order.isPaid ? (
-                <Message variant="success"> Paid on {order.paidAt}</Message>
+                <h4 style={{marginBottom: '10px'}}> Paid on {order.paidAt}</h4>
               ) : (
-                <Message variant="danger">Not paid</Message>
+                <h4 style={{marginBottom: '10px'}}>Not paid</h4>
               )}
-
             <>
-              <h2>Order Items</h2>
+              <h2 style={{marginBottom: '10px', letterSpacing: '1px', fontWeight: '400'}}>Items</h2>
               {order.orderItems.length === 0 ? (
-                <Message>Order is empty</Message>
+                <h4>Order is empty</h4>
               ) : (
                 <>
                   {order.orderItems.map((item, index) => (
@@ -76,16 +69,21 @@ const OrderScreen = ({ match }) => {
                             id="order-img"
                             src={item.image}
                             alt={item.name}
+                            style={{marginTop: '15px'}}
                           />
                         </div>
-                        <div>
-                          <Link to={`/product/${item.product}`}>
+                        <div id="item-name">
+                          <Link 
+                          style={{marginBottom: '10px', color: 'black'}}
+                          to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
                         </div>
-                        <div>
+                        <span 
+                        id="order-price"
+                        style={{marginBottom: '10px'}}>
                           {item.price} x {item.qty} = ${item.price * item.qty}
-                        </div>
+                        </span>
                       </>
                     </div>
                   ))}
@@ -93,15 +91,19 @@ const OrderScreen = ({ match }) => {
               )}
             </>
         <div>
-                <h2>Order Summary</h2>
-                  Items${order.itemsPrice}
+                
+        <span id="final">
+                {/* <small>Items $ {order.itemsPrice}</small> */}
+                <small>Shipping ${order.shippingPrice}</small>
+                <small>Tax ${order.taxPrice}</small>
+                <strong>Total ${order.totalPrice}</strong>
+        </span>   
  
-                  Shipping ${order.shippingPrice}
+                  
 
-                  Tax${order.taxPrice}
+                  
 
-                  Total
-                  ${order.totalPrice}
+                  
 
         </div>
       </div>

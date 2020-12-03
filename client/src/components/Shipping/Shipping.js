@@ -20,9 +20,10 @@ const ShippingScreen = ({ history }) => {
   };
 
   return (
+    <div className="shipping-container">
     <div className="shipping">
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <h1>Shipping</h1>
+      <h1 id="shipping">Shipping</h1>
       <form onSubmit={submitHandler}>
         {/* <Form.Group controlId="address"> */}
         <label>Address</label>
@@ -57,10 +58,11 @@ const ShippingScreen = ({ history }) => {
             required
             onChange={(e) => setCountry(e.target.value)}
           />
-        <button type="submit">
+        <button type="submit" id="continue">
           Continue
         </button>
       </form>
+    </div>
     </div>
   );
 };

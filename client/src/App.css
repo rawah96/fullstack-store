@@ -3,3 +3,7 @@
     transition: 1s all ease;
     transform: scale(1.07);
 } */
+
+button:hover {
+    opacity: 0.75 !important;
+}

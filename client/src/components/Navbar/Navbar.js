@@ -51,8 +51,8 @@ function Navbar() {
                         {userInfo ? (
                             <>
                             <span id="username">
-                                {userInfo.name}
-                                <Link to="/profile">Profile</Link>
+                                <small>Hello</small>{userInfo.name}
+                                {/* <Link to="/profile">Profile</Link> */}
                             </span>
                             <button id="logout"
                                 onClick={logoutHandler}
@@ -61,30 +61,35 @@ function Navbar() {
                             </button>
                             </>
                         ) : (
-                            <Link to="/login">
+                            <Link to="/login" id="login">
                                 Login
                             </Link>
                         )}
                         </>
                     </span>
-                    <span className="admin-menu">
+                    <>
                         {userInfo && userInfo.isAdmin && (
-                            <>
-                            <h5 id="admin">Admin</h5>
+                            <div className="admin-menu">
+                            {/* <h5 id="admin">Admin</h5> */}
                             <ul>
-                            <Link to="/admin/userlist">
-                                Users
-                            </Link>
-                            <Link to="/admin/productlist">
-                                Products
-                            </Link>
-                            <Link to="/admin/orderlist">
-                                Orders
-                            </Link>
+                                <li>
+                                <Link to="/admin/userlist">
+                                    Browse
+                                </Link>
+                                </li>
+                                <li id="second-link">
+                                <Link to="/admin/productlist">
+                                    Edit
+                                </Link>
+                                </li>
                             </ul>
-                            </>
+                            {/* <Link to="/admin/orderlist">
+                                Orders
+                            </Link> */}
+                            
+                            </div>
                         )}
-                    </span>
+                    </>
                 </div>
                 <div className="cart">
                     <Link to="/cart"><ShoppingBasketIcon className="cart-icon"/></Link>

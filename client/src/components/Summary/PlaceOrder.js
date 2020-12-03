@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../Message";
 import CheckoutSteps from "../CheckoutSteps";
 import { createOrder } from "../../actions/orderActions";
+import './Order.css'
 
 const PlaceOrder = ({ history }) => {
   const dispatch = useDispatch();
@@ -52,13 +52,13 @@ const PlaceOrder = ({ history }) => {
   return (
     <div className="place-order">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-        <h2>Shipping</h2>
+        <h2 id="shipping">Shipping</h2>
         <span id="address">
           <strong>Address:</strong>
-            {cart.shippingAddress.address},{cart.shippingAddress.city},
-            {cart.shippingAddress.postalCode},{cart.shippingAddress.country}
-                ,
+            {cart.shippingAddress.address}, {cart.shippingAddress.city}, {}
+             {cart.shippingAddress.postalCode}, {cart.shippingAddress.country}
         </span>
+        <br />
 
         <span id="method">
           <h2>Payment Method: </h2>
@@ -68,7 +68,7 @@ const PlaceOrder = ({ history }) => {
         <span id="items">
         <h2>Order Items</h2>
           {cart.cartItems.length === 0 ? (
-            <Message>Your card is empty</Message>
+            <h4>Your card is empty</h4>
           ) : (
             <>
               {cart.cartItems.map((item, index) => (
@@ -80,11 +80,8 @@ const PlaceOrder = ({ history }) => {
                 <Link to={`/product/${item.product}`} id="item">
                  {item.name}
                 </Link>
-                
-            
-                          {item.price} x {item.qty} = ${item.price * item.qty}
-                  
-                      </div>
+                  {item.price} x {item.qty} = ${item.price * item.qty}  
+                </div>
                   ))}
             </>
               )}
@@ -110,7 +107,7 @@ const PlaceOrder = ({ history }) => {
                 </div>
       
               <div>
-                {error && <Message variant="danger">{error}</Message>}
+                {error && <h4>{error}</h4>}
               </div>
               <div>
                 <button
