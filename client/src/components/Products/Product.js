@@ -13,7 +13,7 @@ const Product = ({ product }) => {
       </Link>
         <Link to={`/product/${product._id}`}>
           <div>
-            <strong>{product.name}</strong>
+            <h4 id="product-name" style={{color: 'black'}}>{product.name}</h4>
           </div>
         </Link>
         <span className="ratings">
@@ -21,7 +21,7 @@ const Product = ({ product }) => {
             value={product.rating}
             text={`${product.numReviews} reviews`}
           ></Rating>
-          ${product.price}
+          <strong>${product.price}</strong>
         </span>
         </div>
     </div>

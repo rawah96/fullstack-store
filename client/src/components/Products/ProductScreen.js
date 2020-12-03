@@ -12,9 +12,8 @@ import {
   Form,
 } from "react-bootstrap";
 import Rating from "../Rating";
-import Loader from "../Loader";
-import Message from "../Message";
 import "./Product.css"
+import background from './background.jpg'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -37,9 +36,9 @@ const ProductScreen = ({ history, match }) => {
         Go Back
       </Link> */}
       {loading ? (
-        <Loader></Loader>
+        <h4>Loading...</h4>
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <h4>{error}</h4>
       ) : (
         <div className="product-screen">
             <img src={product.image} alt={product.name} fluid />
