@@ -31,11 +31,11 @@ const UserListScreen = ({ history }) => {
     <div className="">
       <h1>Users</h1>
       {loading ? (
-        <Loader />
+        <h4>Loading ....</h4>
       ) : error ? (
-        <Message variant="danger">{error}</Message>
+        <h4>{error}</h4>
       ) : (
-        <Table striped bordered hover responsive className="table-sm">
+        <table className="table-sm">
           <thead>
             <tr>
               <th>ID</th>
@@ -75,7 +75,7 @@ const UserListScreen = ({ history }) => {
               </tr>
             ))}
           </tbody>
-        </Table>
+        </table>
       )}
     </div>
   );

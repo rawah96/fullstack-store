@@ -22,6 +22,11 @@ function Navbar() {
     return (
         <nav className="navbar">
             {/* <Link to="/">LOGO IMG</Link>         */}
+            <div className="nav-option">
+                    <span className="line-2">
+                        <Link to="/"><h4>Products</h4></Link>
+                    </span>
+                </div>
             <div className="nav-search">
                 <input 
                     className="search-input"
@@ -32,6 +37,11 @@ function Navbar() {
             <div
                 className="navigation"
             >
+                {/* <div className="nav-option">
+                    <span className="line-2">
+                        <Link to="/"><h4>Products</h4></Link>
+                    </span>
+                </div> */}
                 <div className="nav-option">
                     {/* <span className="line-1">
                         Hello 
@@ -76,17 +86,10 @@ function Navbar() {
                         )}
                     </span>
                 </div>
-                <div className="nav-option">
-                {/* <span className="line-1">
-                        Browse
-                    </span> */}
-                    <span className="line-2">
-                        <Link to="/"><h4>Products</h4></Link>
-                    </span>
-                </div>
                 <div className="cart">
-                    <Link to="/cart"><ShoppingBasketIcon /></Link>
-                    <span className="line-2 cart-count"></span>
+                    <Link to="/cart"><ShoppingBasketIcon className="cart-icon"/></Link>
+                    <h3>Cart</h3>
+                    {/* <span className="line-2 cart-count"></span> */}
                 </div>
             </div>
         </nav>
