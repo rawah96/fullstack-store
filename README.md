@@ -1,5 +1,13 @@
 # fullstack-store
 
+User credentials
+email: sheldon@example.com
+password: 123456
+
+admin credentials
+email: admin@example.com
+password: 123456
+
 MERN stack e-commerce application deployed via Heroku.
 
 Link: https://mern-stack-store-project.herokuapp.com/
